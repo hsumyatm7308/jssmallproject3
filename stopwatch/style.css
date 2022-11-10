@@ -1,0 +1,54 @@
+body {
+    font-family: sans-serif;
+    height: 100vh;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    width: 400px;
+    background-color: #f4f4f4;
+    box-shadow: 0 5px 10px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  
+    padding: 30px;
+  }
+  
+  h2 {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .display {
+    background-color: steelblue;
+    color: #fff;
+    font-size: 35px;
+  
+    padding: 10px 0;
+  }
+  
+  .control {
+    padding: 10px;
+  }
+  
+  .btn {
+    background-color: steelblue;
+    color: #fff;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  
+    padding: 8px;
+    margin: 0 15px;
+  }
+  
+  .btn:focus {
+    outline: none;
+  }
+  
+  .btn:active {
+    transform: scale(.97);
+  }
