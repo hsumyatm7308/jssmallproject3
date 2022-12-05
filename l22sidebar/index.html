@@ -6,12 +6,26 @@
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
+
+        <nav class="navbar">
+            <a href="javascript:void(0)">Home</a>
+            <a href="javascript:void(0)">News</a>
+              <div class="dropdown">
+                <button type="button" class="dropdown-toggle">Download</button>
+
+                <div class="dropdown-menu">
+                    <a href="javascript:void(0);" class="dropdown-item">PDF</a>
+                    <a href="javascript:void(0);" class="dropdown-item">Audio</a>
+                    <a href="javascript:void(0);" class="dropdown-item">Video</a>
+                </div>
+              </div>
+        </nav>
         
         <button type="button" class="nav-btn open-btn">
             <i class="fas fa-bars"></i>
         </button>
 
-        <div class="nav nav-bg">
+        <div class="nav nav-bg ">
             <button type="button" class="nav-btn close-btn"><i class="fas fa-times"></i></button>
             <img src="./img/avatar.png" class="logo" id="logo" alt="">
 
