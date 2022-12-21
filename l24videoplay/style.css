@@ -43,11 +43,15 @@ body{
 
 .progress{
     width:70%;
+    margin-right:10px ;
 }
 
-.fullscreen{
+#openfullscreen,#closefullscreen{
     margin:0 10px;
     color: #fff;
+}
+.closefullscreen{
+    display: none;
 }
 
 .displaytime{
@@ -64,4 +68,9 @@ body{
 
 .progress,.fullscreen{
     cursor: pointer;
+}
+
+.displaytime{
+    margin-left:10px ;
+
 }

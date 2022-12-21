@@ -7,7 +7,12 @@ const nextbtn = document.getElementById('next');
 const stopbtn = document.getElementById('stop'); 
 
 const progress = document.getElementById('progress');
+const getdisplaytime = document.getElementById('displaytime')
 const getfullscreen = document.getElementById('fullscreen');
+
+const getcontainer = document.querySelector('.container')
+const getopenfullscreen = document.querySelector('.openfullscreen');
+const getclsfullscreen = document.querySelector('.closefullscreen');
 
 
 const videos = ['1111','glaxy'];
@@ -81,26 +86,67 @@ function previousvdo(){
 }
 
 
-const getdoce = document.documentElement;
+function updateprogress(){
+// currentTime came from video api 
+  console.log(getvideoscreen.currentTime)
+  console.log(getvideoscreen.duration)
 
-function openfullscreen(){
-    if(getdoce.requestFullscreen){
-        getdoce.requestFullscreen();
-    }else if(getdoce.webkitRequestFullscreen){
-        getdoce.webkitRequestFullscreen();
-    }else if(getdoce.msRequestFullscreen){
-        getdoce.msRequestFullscreen()
-    }
+//   console.log(getvideoscreen.currentTime / getvideoscreen.duration) * 100;
+
+  progress.value = (getvideoscreen.currentTime / getvideoscreen.duration) * 100;  ;
+
+  let getmins = Math.floor(getvideoscreen.currentTime / 60);
+ 
+  if(getmins < 10){
+    // getmins = '0' + getmins;
+    getmins = '0' + String(getmins);
+  }
+
+  let getsecs = Math.floor(getvideoscreen.currentTime % 60);
+
+  if(getsecs < 10){
+    // getsecs = '0' + getsecs;
+    getsecs = '0' + String(getsecs);
+  }
+  
+  getdisplaytime.innerText =` ${getmins}:${getsecs}`
 }
+
+
+// const getdoce = document.documentElement;
+
+
+// getvideoscreen is original control box 
+function openfullscreen(){
+    if(getcontainer.requestFullscreen){
+        getcontainer.requestFullscreen(); //standard w3c 
+    }else if(getcontainer.webkitRequestFullscreen){
+        getcontainer.webkitRequestFullscreen(); //chrome/safari
+    }else if(getcontainer.msRequestFullscreen){
+        getcontainer.msRequestFullscreen() //microsoft pro / id / edge
+    }
+
+    getopenfullscreen.style.display = 'none';
+    getclsfullscreen.style.display = 'inline-block';
+}
+
 
 function closefullscreen(){
     if(document.exitFullscreen){
-        getdoce.exitFullscreen();
+        document.exitFullscreen();
     }else if(document.webkitExitFullscreen){
         document.webkitExitFullscreen();
     }else if(document.msExitFullscreen){
-        getdoce.msExitFullscreen()
+        document.msExitFullscreen()
     }
+
+    getopenfullscreen.style.display = 'inline-block';
+    getclsfullscreen.style.display = 'none';
+}
+
+function setprogress(){
+    // console.log('hey');
+    getvideoscreen.currentTime = (progress.value*getvideoscreen.duration)/100;
 }
 
 
@@ -108,8 +154,15 @@ playbtn.addEventListener('click',playpausevdo)
 nextbtn.addEventListener('click',nextvdo)
 prevbtn.addEventListener('click',previousvdo)
 
-getfullscreen.addEventListener('click',openfullscreen);
+
+getvideoscreen.addEventListener('timeupdate',updateprogress)
+progress.addEventListener('click',setprogress);
+
+getopenfullscreen.addEventListener('click',openfullscreen);
+getclsfullscreen.addEventListener('click',closefullscreen)
 // 1 toe towr yin condition sit pay ya mal 
 
 
 // 20VD 
+
+// 21VD 
