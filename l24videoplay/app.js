@@ -57,6 +57,12 @@ function playpausevdo(){
     }
 }
 
+function stopvideo(){
+    getvideoscreen.currentTime = 0;
+    // getvideoscreen.pause(); 
+    pausevdo();
+}
+
 
 function nextvdo(){
     curridx++;
@@ -86,30 +92,94 @@ function previousvdo(){
 }
 
 
-function updateprogress(){
+function updateprogress(e){
+
+
+// console.log(e.target); 
+// console.log(e.srcElement);
+// console.log(this);
+
+// Method 2 
+// const currenttime = e.target.currentTime; 
+// const duration = e.target.duration;
+// console.log(currenttime,duration)
+
+
+// Method 3 
+// const {currentTime} = e.target;
+// const {duration} = e.target;
+// console.log(currentTime,duration)
+
+
+// method 4 
+// const{currentTime,duration} = e.target;
+// console.log(currentTime,duration)
+
+
+// method 5 
+const[ct,duration] = [e.target.currentTime,e.srcElement.duration];
+// console.log(ct,duration)
+
+
+
+
+// Method 1 
 // currentTime came from video api 
-  console.log(getvideoscreen.currentTime)
-  console.log(getvideoscreen.duration)
+//   console.log(getvideoscreen.currentTime)
+//   console.log(getvideoscreen.duration)
 
 //   console.log(getvideoscreen.currentTime / getvideoscreen.duration) * 100;
 
-  progress.value = (getvideoscreen.currentTime / getvideoscreen.duration) * 100;  ;
+  if(getvideoscreen.currentTime === 0){
+   progress.value = 0;
+  }else{
+    // method 1 
+    // progress.value = (getvideoscreen.currentTime / getvideoscreen.duration) * 100;  ;
 
+    // method 2 
+    // progress.value = (currenttime / duration) * 100;  ;
+   
+    // method 3 / method 4
+    // progress.value = (currentTime / duration) * 100;  ;
+
+    // method 5 
+    progress.value = (ct / duration) * 100;  ;
+
+
+
+  }
+
+  
   let getmins = Math.floor(getvideoscreen.currentTime / 60);
  
-  if(getmins < 10){
-    // getmins = '0' + getmins;
-    getmins = '0' + String(getmins);
-  }
+//   if(getmins < 10){
+//     // getmins = '0' + getmins;
+//     getmins = '0' + String(getmins);
+//   }
 
   let getsecs = Math.floor(getvideoscreen.currentTime % 60);
 
-  if(getsecs < 10){
-    // getsecs = '0' + getsecs;
-    getsecs = '0' + String(getsecs);
-  }
+//   if(getsecs < 10){
+//     // getsecs = '0' + getsecs;
+//     getsecs = '0' + String(getsecs);
+//   }
   
-  getdisplaytime.innerText =` ${getmins}:${getsecs}`
+//   getdisplaytime.innerText =` ${getmins}:${getsecs}`
+
+
+
+
+// Method 2 
+// Note: partStart( ယူမယ့်နေရာအရေအတွက်,startvalue) must be string data typw
+const minutevalue = getmins.toString().padStart(2,'0');
+const secondvalue = getsecs.toString().padStart(2,'0');
+  
+// console.log(minutevalue,secondvalue)
+// console.log(typeof minutevalue,typeof secondvalue)
+
+  getdisplaytime.innerText =` ${minutevalue}:${secondvalue}`
+
+
 }
 
 
@@ -153,7 +223,7 @@ function setprogress(){
 playbtn.addEventListener('click',playpausevdo)
 nextbtn.addEventListener('click',nextvdo)
 prevbtn.addEventListener('click',previousvdo)
-
+stopbtn.addEventListener('click',stopvideo)
 
 getvideoscreen.addEventListener('timeupdate',updateprogress)
 progress.addEventListener('click',setprogress);

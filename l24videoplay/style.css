@@ -41,9 +41,29 @@ body{
     margin:0 5px;
 }
 
-.progress{
+/* For Range  */
+/* .progress{
     width:70%;
     margin-right:10px ;
+} */
+
+/* For Progress  */
+.progress-container{
+    width: 70%;
+    height: 4px ;
+    background-color: #f4f4f4;
+    margin-right:5px ;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.progress{
+    width: 0%;
+    height: 100%;
+    background-color: steelblue;
+    border: 5px;
+
+    transition: width .1s linear;
 }
 
 #openfullscreen,#closefullscreen{
@@ -74,3 +94,6 @@ body{
     margin-left:10px ;
 
 }
+
+
+/* 26PG  */
