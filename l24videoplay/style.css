@@ -58,13 +58,18 @@ body{
 }
 
 .progress{
-    width: 0%;
+    width: 10%;
     height: 100%;
     background-color: steelblue;
     border: 5px;
 
     transition: width .1s linear;
 }
+
+.fullscreen{
+ margin: 0 10px;
+}
+
 
 #openfullscreen,#closefullscreen{
     margin:0 10px;
@@ -93,6 +98,24 @@ body{
 .displaytime{
     margin-left:10px ;
 
+}
+
+.pannel{
+    background-color: steelblue;
+    color: #fff;
+    padding: 0 30px;
+
+    position: absolute;
+    left: 10%;
+    top: 80%;
+
+    z-index: -1;
+
+    transition: top .5s ease-in-out;
+}
+
+.container:hover .pannel{
+    top: 100%;
 }
 
 

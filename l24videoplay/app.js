@@ -6,7 +6,9 @@ const prevbtn = document.getElementById('prev');
 const nextbtn = document.getElementById('next');
 const stopbtn = document.getElementById('stop'); 
 
-const progress = document.getElementById('progress');
+
+// For Range 
+// const progress = document.getElementById('progress');
 const getdisplaytime = document.getElementById('displaytime')
 const getfullscreen = document.getElementById('fullscreen');
 
@@ -14,6 +16,11 @@ const getcontainer = document.querySelector('.container')
 const getopenfullscreen = document.querySelector('.openfullscreen');
 const getclsfullscreen = document.querySelector('.closefullscreen');
 
+const gettitle = document.getElementById('title'); 
+
+// For Progress Container 
+const getprogressbtn = document.getElementById('progress-container')
+const progress = document.getElementById('progress');
 
 const videos = ['1111','glaxy'];
 
@@ -23,6 +30,7 @@ loadvideo(videos[curridx]);
 
 function loadvideo(vdo){
     getvideoscreen.src = `${vdo}.mp4`;
+    gettitle.textContent = vdo;
 };
 
 function playvdo(){
@@ -130,24 +138,40 @@ const[ct,duration] = [e.target.currentTime,e.srcElement.duration];
 
 //   console.log(getvideoscreen.currentTime / getvideoscreen.duration) * 100;
 
-  if(getvideoscreen.currentTime === 0){
-   progress.value = 0;
-  }else{
-    // method 1 
-    // progress.value = (getvideoscreen.currentTime / getvideoscreen.duration) * 100;  ;
 
-    // method 2 
-    // progress.value = (currenttime / duration) * 100;  ;
+
+
+// For Range 
+//   if(getvideoscreen.currentTime === 0){
+//    progress.value = 0;
+//   }else{
+//     // method 1 
+//     // progress.value = (getvideoscreen.currentTime / getvideoscreen.duration) * 100;  ;
+
+//     // method 2 
+//     // progress.value = (currenttime / duration) * 100;  ;
    
-    // method 3 / method 4
-    // progress.value = (currentTime / duration) * 100;  ;
+//     // method 3 / method 4
+//     // progress.value = (currentTime / duration) * 100;  ;
 
-    // method 5 
-    progress.value = (ct / duration) * 100;  ;
+//     // method 5 
+//     progress.value = (ct / duration) * 100;  ;
 
 
 
-  }
+//   }
+
+
+// For Progress Container 
+if(getvideoscreen.currentTime === 0){
+    progress.style.width = '0%'
+}else{
+    const progresspercent = (ct/duration)* 100;
+    // console.log(progresspercent)
+    progress.style.width = `${progresspercent}%`;
+}
+
+// progress.value = (getvideoscreen.currentTime / getvideoscreen.duration) * 100 
 
   
   let getmins = Math.floor(getvideoscreen.currentTime / 60);
@@ -214,9 +238,21 @@ function closefullscreen(){
     getclsfullscreen.style.display = 'none';
 }
 
-function setprogress(){
+function setprogress(e){
     // console.log('hey');
-    getvideoscreen.currentTime = (progress.value*getvideoscreen.duration)/100;
+// For Range 
+    // getvideoscreen.currentTime = (progress.value*getvideoscreen.duration)/100;
+
+// For Progress Container 
+   const getelewidth = this.clientWidth;
+   console.log(getelewidth);
+
+   const getclickx = e.offsetX;
+   console.log(getclickx) 
+
+   const duration = getvideoscreen.duration;
+
+   getvideoscreen.currentTime = (getclickx/getelewidth) * duration;
 }
 
 
@@ -226,7 +262,13 @@ prevbtn.addEventListener('click',previousvdo)
 stopbtn.addEventListener('click',stopvideo)
 
 getvideoscreen.addEventListener('timeupdate',updateprogress)
-progress.addEventListener('click',setprogress);
+getvideoscreen.addEventListener('end',nextvdo);
+getvideoscreen.addEventListener('click',playpausevdo);
+// For Range 
+// progress.addEventListener('click',setprogress);
+
+// For Progress Container 
+getprogressbtn.addEventListener('click',setprogress);
 
 getopenfullscreen.addEventListener('click',openfullscreen);
 getclsfullscreen.addEventListener('click',closefullscreen)
