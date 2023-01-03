@@ -8,7 +8,7 @@ stopbtn = document.getElementById('stop');
 const getprogressbtn = document.getElementById('progress-container'),
 progress = document.getElementById('progress');
 
-const getvolprogress = document.getElementById('volumegress');
+const getvolprogress = document.getElementById('volumeprogress');
 const getdisplaytime = document.getElementById('displaytime')
 
 const audios = ['sample1','sample2','sample3'];
@@ -80,6 +80,34 @@ function updateprogress(e){
         const progresspercent = (currentTime/duration)*100;
         progress.style.width = `${progresspercent}%`;
     }
+
+    let mins = Math.floor(getaudioscreen.currentTime/60);
+    let secs =Math.floor(getaudioscreen.currentTime%60);
+
+    const minuteval = mins.toString().padStart(2,'0');
+    const secuteval = secs.toString().padStart(2,'0');
+    getdisplaytime.innerText = `${minuteval}:${secuteval}`
+}
+
+function setaudioprogtess(e){
+    const width = this.clientWidth;
+    // console.log(width)
+    const clickx = e.offsetX;
+    // console.log(clickx)
+
+    const duration = getaudioscreen.duration;
+    getaudioscreen.currentTime = (clickx/width)*duration;
+}
+
+function volumecontrol(){
+    console.log(getvolprogress.value)
+    // volume came from audio play 
+    getaudioscreen.volume = getvolprogress.value/100;
+
+    // 1 is default 
+    // 0.5 half volume 50%
+    // 0 is mute 0%
+
 }
 
 getaudioscreen.addEventListener('timeupdate',updateprogress);
@@ -92,4 +120,5 @@ prevbtn.addEventListener('click',previousado);
 nextbtn.addEventListener('click',nextado);
 stopbtn.addEventListener('click',stopado);
 
-// 2AD 
+getprogressbtn.addEventListener('click',setaudioprogtess);
+getvolprogress.addEventListener('click',volumecontrol);
