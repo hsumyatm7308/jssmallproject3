@@ -15,7 +15,7 @@ const audios = ['sample1','sample2','sample3'];
 
 let curridx = 0;
 
-loadaudio(audios[curridx]);
+// loadaudio(audios[curridx]);
 
 function loadaudio(ado){
     getaudioscreen.src = `./source/${ado}.mp3`;
@@ -81,8 +81,13 @@ function updateprogress(e){
         progress.style.width = `${progresspercent}%`;
     }
 
-    let mins = Math.floor(getaudioscreen.currentTime/60);
-    let secs =Math.floor(getaudioscreen.currentTime%60);
+    // forwoard 
+    // let mins = Math.floor(getaudioscreen.currentTime/60);
+    // let secs =Math.floor(getaudioscreen.currentTime%60);
+
+    // backward 
+    let mins = Math.floor((duration - getaudioscreen.currentTime)/60);
+    let secs = Math.floor((duration - getaudioscreen.currentTime)%60);
 
     const minuteval = mins.toString().padStart(2,'0');
     const secuteval = secs.toString().padStart(2,'0');
