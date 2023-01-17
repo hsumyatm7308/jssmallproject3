@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Numberguess Voice command</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
         <link rel="stylesheet" href="./style.css">
 
     </head>
@@ -16,12 +17,13 @@
             <input type="number" name="guessnumber" id="guessnumber" class="form-control " placeholder="Guess Hidden Number">
             <input type="submit" name="" id="btn" class="btn">
 
-            <span class="message1">Message1</span>
-            <span class="message2">Message2</span>
+            <span class="message1"></span>
+            <span class="message2"></span>
         </div>
 
+        <button type="button" id="mic-btn" class="mic-btn"><i class="fas fa-microphone"></i>Use Microphone</button>
+
         <div id="voice-container">
-            <span class="voicemessage">Did you say!!</span>
 
         </div>
         <script src="./app.js"></script>
