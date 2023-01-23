@@ -47,3 +47,12 @@ h2{
    justify-content: space-between;
 
 }
+
+.expense-box > div{
+    flex:1;
+    text-align: center;
+}
+
+.expense-box > div:first-of-type{
+    border-right: 1px solid #555;
+}
