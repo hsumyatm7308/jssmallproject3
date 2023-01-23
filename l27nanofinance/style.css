@@ -34,6 +34,7 @@ h2{
   margin: 0;
   text-align: center;
   box-shadow: var(--box-shadow);
+  border-bottom: 1px solid #555;
 }
 
 .expense-box{
@@ -56,3 +57,9 @@ h2{
 .expense-box > div:first-of-type{
     border-right: 1px solid #555;
 }
+
+.tran-container{
+    background-color: #f4f4f4f4;
+    padding: 10px;
+}
+
