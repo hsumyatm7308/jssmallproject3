@@ -1,1 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Nano Finace</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <body>
+        <div class="container">
+            <h2>Petty Cash</h2>
+            <div class="balance-box">
+                <h4>Your Balance</h4>
+                <h1><span>$</span><span id="balance">0.00</span></h1>
+            </div>
+            <div class="expense-box">
+                <div>
+                    <h4>Debit</h4>
+                    <p><span>$</span><span id="money-deb" class="money deb">0.00</span></p>
+                </div>
+                <div>
+                    <h4>Credit</h4>
+                    <p><span>$</span><span id="money-crd" class="money crd">0.00</span></p>
 
+                </div>
+         
+            </div>
+
+           <div id="tran-container" class="tran-container">
+            <form id="form" action="" method="">
+                <button type="button" id="open-btn" class="open-btn">open</button>
+
+                <h3>New Transaction</h3>
+                <div class="form-group">
+                    <label for="">Status</label>
+                    <input type="radio" name="status" id="statusinc" class="form-check-input"><label for="statusinc">Income</label>
+
+                    <label for="">Status</label>
+                    <input type="radio" name="status" id="statusinc" class="form-check-input"><label for="statusexp">Expense</label>
+                </div>
+
+              
+                <div class="form-group">
+                    <label for="amount">amount</label>
+                    <input type="number" name="amount" id="amount" class="form-control" placeholder="Enter Amount">
+                </div>
+
+                <div class="form-group">
+                    <label for="date">Date</label>
+                    <input type="date" name="date" id="date" class="form-control">
+                </div>
+                
+                <div class="form-group">
+                    <label for="remark">Remark</label>
+                    <textarea name="remark" id="remark" class="form-control" placeholder="Enter Remark" rows="3"></textarea>
+                </div>
+                
+                <button class="submit" id="btn" aria-colcount="btn">Submit</button>
+                
+            </form>
+            <div id="history-box" class="history-box">
+                <h3>HIstory</h3>
+                <div class="history-list">
+                    <ul id="list-group" class="list-group">
+                        <li class="list-group-item">Petty Cash <span>+500</span><span>23/Janauary/2023</span> <button type="button" class="delete-btn">x</button></li>
+
+                    </ul>
+                </div>
+
+            </div>
+           </div>
+        </div>
+        
+        <script src="./app.js" type=""></script>
+    </body>
+</html>
