@@ -44,6 +44,19 @@ function setclock(){
    const minutes = now.getMinutes();
    const seconds = now.getSeconds();
 
+   //Method 2
+   setrotation(hourel,hours/12);
+   setrotation(minuteel,minutes/60);
+   setrotation(secondel,seconds/60);
+
 }
 
 setclock();
+
+function setrotation(handitem,rotation){
+  // console.log(handitem,rotation)
+  handitem.style.setProperty('--myrotation',rotation*360);
+}
+
+setclock();
+setInterval(setclock,1000);
