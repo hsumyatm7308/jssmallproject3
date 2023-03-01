@@ -99,6 +99,9 @@ body{
 }
 
 .clock-face-hand-item.hour{
+
+    --myrotation: 320;
+
     width: 4px;
     height: 60px;
     background-color: #fff;
@@ -109,10 +112,12 @@ body{
 
     transform-origin: 50% 100%;
 
-    transform: rotate(45deg);
+    /* transform: rotate(320deg); */
+    transform: rotate(calc(var(--myrotation) * 1deg));
 }
 
 .clock-face-hand-item.minute{
+    --myrotation: 50;
     width: 4px;
     height: 120px;
     background-color: #fff;
@@ -122,18 +127,22 @@ body{
     top: 30px;
 
     transform-origin: 50% 120px;
-    transform: rotate(50deg);
+    /* transform: rotate(50deg); */
+    transform: rotate(calc(var(--myrotation) * 1deg));
 }
 
 .clock-face-hand-item.second{
+    --myrotation: 200;
     width: 2px;
     height: 145px;
     background-color: steelblue;
     border-radius:10px ;
 
     left: 150px;
-    top: 5px;
+    top: 10px;
 
-    transform-origin: 50% 145px;
-    transform: rotate(200deg);
+    transform-origin: 50% 135px;
+    /* transform: rotate(200deg); */
+    transform: rotate(calc(var(--myrotation) * 1deg));
+    
 }
