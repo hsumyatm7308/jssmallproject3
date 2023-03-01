@@ -139,9 +139,9 @@ body{
     border-radius:10px ;
 
     left: 150px;
-    top: 10px;
+    top: 20px;
 
-    transform-origin: 50% 135px;
+    transform-origin: 50% 130px;
     /* transform: rotate(200deg); */
     transform: rotate(calc(var(--myrotation) * 1deg));
     
