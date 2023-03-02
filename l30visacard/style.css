@@ -62,6 +62,7 @@ label{
 .card-number{
     margin-bottom: 30px;
     position: relative;
+    overflow: hidden;
 }
 
 input[id="card-digit"]{
@@ -70,9 +71,9 @@ input[id="card-digit"]{
     font-size: 30px;
 }
 
-input[id="card-digit"]:hover{
+/* input[id="card-digit"]:hover{ */
     /* border-bottom: 2px solid #fff; */
-}
+/* } */
 
 .underline{
     width: 100%;
@@ -82,4 +83,56 @@ input[id="card-digit"]:hover{
     position: absolute;
     left: -100%;
     bottom: 0;
+
+    transition: left .3s;
+}
+
+.card-holder{
+    width: 50%;
+    padding: 0 80px 0 0;
+    margin-right: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.input[id="card-name"]{
+    width: 100px;
+    height: 25px;
+    font-size: 16px;
+}
+
+.card-date{
+    width: 90px;
+    padding: 0;
+    margin-right: 60px;
+
+    position: relative;
+    overflow: hidden;
+
+}
+
+.card-code{
+    width: 70px;
+    padding: 0;
+    margin-right: 0;
+
+    position: relative;
+    overflow: hidden;
+
+}
+
+.card-number input[id="card-digit"]:hover + .underline,.card-number input[id="card-digit"]:focus + .underline{
+    left: 0;
+}
+
+.card-holder input[id="card-name"]:hover + .underline,.card-holder input[id="card-name"]:focus + .underline{
+    left: 0;
+}
+
+.card-date input[id="card-exp"]:hover + .underline,.card-exp input[id="card-exp"]:focus + .underline{
+    left: 0;
+}
+
+.card-code input[id="card-ccv"]:hover + .underline,.card-code input[id="card-code"]:focus + .underline{
+    left: 0;
 }
