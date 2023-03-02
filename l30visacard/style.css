@@ -1,0 +1,66 @@
+body{
+    font-family: sans-serif;
+    height: 100vh;
+    background-color: #000;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 420px;
+    height: auto;
+    background:linear-gradient(390deg,#000,#333) ;
+}
+
+.visacard{
+    width: 100%;
+    height: 260px;
+    background-color: rgba(255,255,255,0.1);
+    backdrop-filter: blur(40px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 50px rgba(0,0,0,.3);
+    padding: 35px;
+    border-radius: 20px;
+
+}
+
+.logo{
+    width: 100px;
+    padding-bottom: 40px;
+    opacity: .9;
+}
+
+.form-group{
+    display: flex;
+}
+
+label{
+    display: block;
+    color: #fff;
+    font-size: 12px;
+    padding-bottom: 2px;
+}
+
+.form-control{
+    height: 25px;
+    background: none;
+    color: #fff;
+    font-size: 16px;
+    border: 0;
+}
+
+.form-control:focus{
+    outline: none;
+}
+
+.form-control::placeholder{
+    color: #bbb;
+}
+
+input[id="card-digit"]{
+    width: 100%;
+    height: 50px;
+    font-size: 30px;
+}
